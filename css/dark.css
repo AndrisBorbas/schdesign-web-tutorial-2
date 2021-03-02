@@ -1,43 +1,38 @@
-main {
-	position: relative;
-}
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark light;
+	}
 
-body {
-	background: none;
-}
+	body.dark {
+		color: #fff;
+	}
 
-body::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: url("../img/rough_bg.jpg");
-}
+	body.dark::before {
+		filter: invert(1);
+	}
 
-body.dark {
-	color: #fff;
-}
+	.dark main {
+		background: #222227;
+	}
 
-body.dark::before {
-	filter: invert(1);
-}
+	.dark .dayName {
+		color: #ddd;
+		background-color: #444;
+	}
 
-.dark main {
-	background: #222227;
-}
+	.dark .dayTime {
+		color: #ccc;
+		background-color: #333;
+	}
 
-.dark .dayName {
-	color: #ddd;
-	background-color: #444;
-}
+	.dark .day {
+		border-left-color: #111;
+	}
 
-.dark .dayTime {
-	color: #ccc;
-	background-color: #333;
-}
-
-.dark .day {
-	border-left-color: #111;
+	.dialogBox {
+		background-color: #222;
+	}
+	.dialogBox::before {
+		background-color: #333;
+	}
 }

@@ -4,9 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Naptár</title>
+
 		<link rel="stylesheet" href="css/layout.css" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/responsive.css" />
+		<link rel="stylesheet" href="css/portal.css" />
+		<link rel="stylesheet" href="css/overrides.css" />
 		<link rel="stylesheet" href="css/dark.css" />
 	</head>
 	<body class="dark">
@@ -14,6 +17,13 @@
 			<div class="time">
 				<div class="dayName"></div>
 				<div class="dayTimes">
+					<div class="dayTime">00:00</div>
+					<div class="dayTime">01:00</div>
+					<div class="dayTime">02:00</div>
+					<div class="dayTime">03:00</div>
+					<div class="dayTime">04:00</div>
+					<div class="dayTime">05:00</div>
+					<div class="dayTime">06:00</div>
 					<div class="dayTime">07:00</div>
 					<div class="dayTime">08:00</div>
 					<div class="dayTime">09:00</div>
@@ -28,25 +38,34 @@
 					<div class="dayTime">18:00</div>
 					<div class="dayTime">19:00</div>
 					<div class="dayTime">20:00</div>
+					<div class="dayTime">21:00</div>
+					<div class="dayTime">22:00</div>
+					<div class="dayTime">23:00</div>
 				</div>
 			</div>
 			<div class="day">
 				<div class="dayName">Hétfő</div>
-				<div class="dayEvents">
-					<div class="event length--4" style="grid-row-start: 4">
+				<div class="dayEvents" id="hétfő">
+					<div class="event length--4" style="grid-row-start: 4; display: none">
 						<div class="eventTitle">Kommunikációs hálózatok 2</div>
 						<div class="eventDetails">
 							<div class="eventTime">10:00-14:00</div>
 						</div>
 					</div>
-					<div class="eventSubdivide length--2" style="grid-row-start: 8">
+					<div
+						class="eventSubdivide length--2"
+						style="grid-row-start: 8; display: none"
+					>
 						<div class="event length--2" style="grid-row-start: 1">
 							<div class="eventTitle">Algoritmus elmélet</div>
 							<div class="eventDetails">
 								<div class="eventTime">12:00-14:00</div>
 							</div>
 						</div>
-						<div class="event length--2" style="grid-row-start: 1">
+						<div
+							class="event length--2"
+							style="grid-row-start: 1; display: none"
+						>
 							<div class="eventTitle">Kotlin alapú szoftverfejlesztés</div>
 							<div class="eventDetails">
 								<div class="eventTime">12:00-14:00</div>
@@ -57,29 +76,77 @@
 			</div>
 			<div class="day">
 				<div class="dayName">Kedd</div>
-				<div class="dayEvents"></div>
+				<div class="dayEvents" id="kedd"></div>
 			</div>
 			<div class="day">
 				<div class="dayName">Szerda</div>
-				<div class="dayEvents"></div>
+				<div class="dayEvents" id="szerda"></div>
 			</div>
 			<div class="day">
 				<div class="dayName">Csütörtök</div>
-				<div class="dayEvents"></div>
+				<div class="dayEvents" id="csütörtök"></div>
 			</div>
 			<div class="day">
 				<div class="dayName">Péntek</div>
-				<div class="dayEvents"></div>
+				<div class="dayEvents" id="péntek"></div>
 			</div>
 			<div class="day">
 				<div class="dayName">Szombat</div>
-				<div class="dayEvents"></div>
+				<div class="dayEvents" id="szombat"></div>
 			</div>
 			<div class="day">
 				<div class="dayName">Vasárnap</div>
-				<div class="dayEvents"></div>
+				<div class="dayEvents" id="vasárnap"></div>
 			</div>
 		</main>
+		<div id="portal" style="display: none">
+			<div>
+				<div class="dialogBox" id="addEventDialogBox" style="display: none">
+					<button id="addEventDialogBoxCloseButton" onclick="closePortal()">
+						&nbsp;X&nbsp;
+					</button>
+					<h3>Esemény hozzáadása</h3>
+					<form id="addEventForm">
+						<label for="addEventName">Esemény:</label>
+						<input
+							type="text"
+							name="addEventName"
+							id="addEventName"
+							placeholder="Esemény neve"
+						/>
+						<label for="addEventDay">Napja:</label>
+						<input
+							type="day"
+							name="addEventDay"
+							id="addEventDay"
+							placeholder="nap"
+						/>
+						<label for="addEventStartTime">Kezdete:</label>
+						<input
+							type="time"
+							name="addEventStartTime"
+							id="addEventStartTime"
+						/>
+						<label for="addEventLength">Hossza:</label>
+						<input
+							type="number"
+							name="addEventLength"
+							id="addEventLength"
+							min="1"
+							max="12"
+							placeholder="óra"
+						/>
+						<input type="submit" value="Hozzáad" />
+					</form>
+				</div>
+				<div class="dialogBox" id="editEventDialogBox" style="display: none">
+					<button id="editEventDialogBoxCloseButton" onclick="closePortal()">
+						&nbsp;X&nbsp;
+					</button>
+					<h3>Esemény szerkesztése</h3>
+				</div>
+			</div>
+		</div>
 		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>
