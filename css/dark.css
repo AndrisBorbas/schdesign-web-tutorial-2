@@ -1,0 +1,16 @@
+body.dark {
+	color: #fff;
+}
+
+body.dark::before {
+	filter: invert(1);
+}
+
+.dark main {
+	background: #222227;
+}
+
+.dark .dayName {
+	color: #ddd;
+	background-color: #444;
+}
