@@ -39,7 +39,7 @@ function addEventToDom(event) {
 	const title = document.createElement("h4");
 	title.innerHTML = event.name;
 	title.classList.add("eventTitle");
-	title.style.webkitLineClamp = `${event.length == 1 ? 1 : 4}`;
+	title.style.webkitLineClamp = `${event.length == 1 ? 2 : 8}`;
 	container.appendChild(title);
 
 	const time = document.createElement("p");

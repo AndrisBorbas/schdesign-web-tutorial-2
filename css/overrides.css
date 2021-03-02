@@ -29,6 +29,7 @@ body::before {
 .dayEvents {
 	max-width: 95%;
 	grid-template-rows: repeat(24, 60px);
+	position: relative;
 }
 
 .dayName {
@@ -42,6 +43,8 @@ body::before {
 
 .event {
 	cursor: pointer;
+	padding: 0.25rem 0.35rem;
+	margin-bottom: 6px;
 }
 
 .eventTitle {
@@ -49,4 +52,12 @@ body::before {
 	-webkit-box-orient: vertical;
 	display: -webkit-box;
 	overflow: hidden;
+	font-size: small;
+	font-weight: 500;
+	margin-bottom: 0.15rem;
+}
+
+.eventTime {
+	font-size: x-small;
+	font-weight: 200;
 }
