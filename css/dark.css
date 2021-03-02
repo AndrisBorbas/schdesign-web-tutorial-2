@@ -1,3 +1,21 @@
+main {
+	position: relative;
+}
+
+body {
+	background: none;
+}
+
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/rough_bg.jpg");
+}
+
 body.dark {
 	color: #fff;
 }
@@ -13,4 +31,13 @@ body.dark::before {
 .dark .dayName {
 	color: #ddd;
 	background-color: #444;
+}
+
+.dark .dayTime {
+	color: #ccc;
+	background-color: #333;
+}
+
+.dark .day {
+	border-left-color: #111;
 }

@@ -5,8 +5,8 @@
 }
 body {
 	font-family: "Roboto"; /* A fentebb 'létrehozott' betűtípust használjuk fel */
+	background-image: url("../img/rough_bg.jpg"); /* Beállítjuk a letöltött hátteret */
 }
-
 main {
 	background-color: white; /* legyen fehér a háttér */
 	/* Ezt csak másoljuk le */
@@ -66,21 +66,4 @@ main {
 }
 .day {
 	border-left: 1px solid rgb(234, 234, 234);
-}
-
-/* New stuff */
-
-main {
-	position: relative;
-}
-
-body::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-	background-image: url("../img/rough_bg.jpg");
 }
