@@ -72,7 +72,20 @@ function submitAddEventForm(e) {
 		startTime: addEventForm.elements.addEventStartTime.value,
 		endTime: addEventForm.elements.addEventEndTime.value,
 	};
+
+	if (!event.name || !event.day || !event.endTime || !event.startTime) {
+		window.alert("Minden mezőt tölts ki");
+		return;
+	}
+
 	events.push(event);
+
+	events.sort((a, b) => {
+		if (a.startTime > b.startTime) return 1;
+		if (a.startTime < b.startTime) return -1;
+		return 0;
+	});
+
 	window.localStorage.setItem("events", JSON.stringify(events));
 
 	addEventToDom(event);

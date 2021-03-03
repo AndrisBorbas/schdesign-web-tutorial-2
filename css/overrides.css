@@ -10,6 +10,8 @@ main {
 
 body {
 	background: none;
+
+	padding: 0.5rem;
 }
 
 body::before {
