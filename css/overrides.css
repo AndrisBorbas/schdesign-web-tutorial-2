@@ -24,6 +24,7 @@ body::before {
 
 .day {
 	height: 100%;
+	min-width: 120px;
 }
 
 .dayEvents {
@@ -35,16 +36,26 @@ body::before {
 .dayName {
 	position: sticky;
 	top: 0;
+	z-index: 20;
+	margin-bottom: 2px;
+	box-shadow: 0px 3px 4px -2px black;
 }
 
 .dayTimes {
 	grid-template-rows: repeat(24, 60px);
 }
 
+.dayTime {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
 .event {
 	cursor: pointer;
 	padding: 0.25rem 0.35rem;
 	margin-bottom: 6px;
+	position: absolute;
+	width: 100%;
 }
 
 .eventTitle {
@@ -60,4 +71,12 @@ body::before {
 .eventTime {
 	font-size: x-small;
 	font-weight: 200;
+}
+
+.line {
+	border: none;
+	position: absolute;
+	width: 100%;
+	color: transparent;
+	border-bottom: 1px solid #111;
 }

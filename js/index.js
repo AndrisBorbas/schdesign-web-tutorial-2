@@ -33,17 +33,24 @@ function dayEventListener(e) {
 function addEventToDom(event) {
 	const container = document.createElement("div");
 	container.classList.add("event");
-	container.style.gridRowEnd = `span ${event.length}`;
-	container.style.gridRowStart = `${event.startTime - 6}`;
+	const offset =
+		parseInt(event.startTime.split(":")[0]) * 60 +
+		parseInt(event.startTime.split(":")[1]);
+	const height =
+		parseInt(event.endTime.split(":")[0]) * 60 +
+		parseInt(event.endTime.split(":")[1]) -
+		offset;
+	container.style.top = `${offset}px`;
+	container.style.height = `${height < 36 ? 36 : height}px`;
 
 	const title = document.createElement("h4");
 	title.innerHTML = event.name;
 	title.classList.add("eventTitle");
-	title.style.webkitLineClamp = `${event.length == 1 ? 2 : 8}`;
+	title.style.webkitLineClamp = `${parseInt(height / 13)}`;
 	container.appendChild(title);
 
 	const time = document.createElement("p");
-	time.innerHTML = `${event.startTime}:00-${event.startTime + event.length}:00`;
+	time.innerHTML = `${event.startTime}-${event.endTime}`;
 	time.classList.add("eventTime");
 	container.appendChild(time);
 
@@ -62,10 +69,8 @@ function submitAddEventForm(e) {
 	const event = {
 		name: addEventForm.elements.addEventName.value,
 		day: addEventForm.elements.addEventDay.value.toLowerCase(),
-		startTime: parseInt(
-			addEventForm.elements.addEventStartTime.value.split(":")[0]
-		),
-		length: parseInt(addEventForm.elements.addEventLength.value),
+		startTime: addEventForm.elements.addEventStartTime.value,
+		endTime: addEventForm.elements.addEventEndTime.value,
 	};
 	events.push(event);
 	window.localStorage.setItem("events", JSON.stringify(events));
@@ -73,6 +78,19 @@ function submitAddEventForm(e) {
 	addEventToDom(event);
 
 	closePortal();
+}
+
+function addSeparators() {
+	const dayTimes = document.getElementsByClassName("dayTimes")[0];
+	const container = document.createElement("div");
+
+	for (let i = 0; i < 23; i++) {
+		const line = document.createElement("hr");
+		line.classList.add("line");
+		line.style.top = `${60 * i + 120}px`;
+		container.appendChild(line);
+	}
+	dayTimes.appendChild(container);
 }
 
 function addClickListeners() {
@@ -96,3 +114,4 @@ function addClickListeners() {
 }
 
 addClickListeners();
+addSeparators();

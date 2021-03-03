@@ -7,7 +7,7 @@
 
 		<link rel="stylesheet" href="css/layout.css" />
 		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/responsive.css" />
+
 		<link rel="stylesheet" href="css/portal.css" />
 		<link rel="stylesheet" href="css/overrides.css" />
 		<link rel="stylesheet" href="css/dark.css" />
@@ -15,7 +15,7 @@
 	<body class="dark">
 		<main>
 			<div class="time">
-				<div class="dayName"></div>
+				<div class="dayName">&nbsp;</div>
 				<div class="dayTimes">
 					<div class="dayTime">00:00</div>
 					<div class="dayTime">01:00</div>
@@ -45,34 +45,7 @@
 			</div>
 			<div class="day">
 				<div class="dayName">Hétfő</div>
-				<div class="dayEvents" id="hétfő">
-					<div class="event length--4" style="grid-row-start: 4; display: none">
-						<div class="eventTitle">Kommunikációs hálózatok 2</div>
-						<div class="eventDetails">
-							<div class="eventTime">10:00-14:00</div>
-						</div>
-					</div>
-					<div
-						class="eventSubdivide length--2"
-						style="grid-row-start: 8; display: none"
-					>
-						<div class="event length--2" style="grid-row-start: 1">
-							<div class="eventTitle">Algoritmus elmélet</div>
-							<div class="eventDetails">
-								<div class="eventTime">12:00-14:00</div>
-							</div>
-						</div>
-						<div
-							class="event length--2"
-							style="grid-row-start: 1; display: none"
-						>
-							<div class="eventTitle">Kotlin alapú szoftverfejlesztés</div>
-							<div class="eventDetails">
-								<div class="eventTime">12:00-14:00</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<div class="dayEvents" id="hétfő"></div>
 			</div>
 			<div class="day">
 				<div class="dayName">Kedd</div>
@@ -106,7 +79,7 @@
 						&nbsp;X&nbsp;
 					</button>
 					<h3>Esemény hozzáadása</h3>
-					<form id="addEventForm">
+					<form id="addEventForm" autocomplete="off">
 						<label for="addEventName">Esemény:</label>
 						<input
 							type="text"
@@ -126,15 +99,14 @@
 							type="time"
 							name="addEventStartTime"
 							id="addEventStartTime"
+							placeholder="HH:MM"
 						/>
-						<label for="addEventLength">Hossza:</label>
+						<label for="addEventEndTime">Vége:</label>
 						<input
-							type="number"
-							name="addEventLength"
-							id="addEventLength"
-							min="1"
-							max="12"
-							placeholder="óra"
+							type="time"
+							name="addEventEndTime"
+							id="addEventEndTime"
+							placeholder="HH:MM"
 						/>
 						<input type="submit" value="Hozzáad" />
 					</form>
